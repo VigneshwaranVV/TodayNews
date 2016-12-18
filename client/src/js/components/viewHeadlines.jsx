@@ -29,7 +29,7 @@ export default class viewHeadlines extends React.Component
         <div className = "jumbotron row">
           <div className = "container col-xs-12">
             <div className="col-xs-6" >
-              <a id="click" href={this.props.data.url} className="col-xs-12"> <img className="thumbnail col-xs-12"  id="poster" src={this.props.data.urltoImage}  alt="image not available"/></a>
+              <a id="click" href={this.props.data.url} className="col-xs-12"> <img className="thumbnail col-xs-12"  id="poster" src={this.props.data.urlToImage}  alt="image not available"/></a>
             </div>
             <div className="col-xs-6">
               <a id="click" href={this.props.data.url} ><h4>{this.props.data.title}</h4></a>

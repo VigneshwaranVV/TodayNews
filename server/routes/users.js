@@ -4,7 +4,6 @@ var user=require('../models/usermodal');
   router.post("/add",function(req,res) {
     if(req.body) {
     var uservar=new user();
-    console.log(req.body.username);
     uservar.username=req.body.username;
     uservar.password=req.body.password;
     uservar.save(function(err){
@@ -18,8 +17,8 @@ var user=require('../models/usermodal');
     }
     });
 
-router.delete("/delete/:uname",function(req,res){
-    var request=req.params.uname;
+router.delete("/delete",function(req,res){
+    var request=req.body.username;
     if(request)
     {
       user.remove({username:request},function(err){
