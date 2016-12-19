@@ -4,8 +4,8 @@ React.js application to search and display News information.
 
 Github URL: https://github.com/VigneshwaranVV/Todaynews.git To run the application:
 
-Clone the repo
-From Todaynews/client run npm install
-From Todaynews/server run npm install
-From Todaynews/client run npm run build
-From Todaynews run npm start
+1.Clone the repo
+2.From Todaynews/client run npm install
+3.From Todaynews/server run npm install
+4.From Todaynews/client run npm run build
+5.From Todaynews run npm start
