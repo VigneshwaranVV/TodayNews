@@ -5,7 +5,7 @@ constructor()
 {
   super();
   this.state={
-  "comm":"viki",
+  "comm":" ",
   "trigger":" "
   }
 }
@@ -21,7 +21,6 @@ $.ajax({
       success: function(data)
       {
         window.location.reload();
-        console.log("deletion successsssssssssssss");
       }.bind(this),
       error:function(err)
       {
@@ -43,7 +42,6 @@ $.ajax({
         success: function(data)
         {
           window.location.reload();
-          console.log("updation successsssssssssssss");
         }.bind(this),
         error:function(err)
         {
@@ -55,6 +53,9 @@ getcommenttext(com){
   this.setState({"comm":com.target.value});
 }
 render(){
+var title=this.props.data._id;
+var title2="#"+this.props.data._id;
+console.log(title+"------"+title2);
   return(
       <div className = "jumbotron col-xs-12">
         <div className = "container col-xs-12">
@@ -70,9 +71,9 @@ render(){
                    <button type="button" className="btn btn-info btn-lg" onClick={this.Todelete.bind(this)}  title="click to delete">Delete</button>
                 </div>
                
-                <div className="container col-xs-6">
-                    <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Update Comment</button>
-                    <div className="modal fade" id="myModal" role="dialog">
+                <div className="container col-xs-6" >
+                    <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target={title2}>Update Comment</button>
+                    <div className="modal fade" id={title} role="dialog">
                       <div className="modal-dialog">
                         <div className="modal-content">
                           <div className="modal-header">

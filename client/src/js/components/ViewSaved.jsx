@@ -16,9 +16,6 @@ constructor(){
       dataType:'JSON',
       success: function(data1)
       {
-      	if(data1==' ')
-      	alert("Nothing to display");
-        console.log(data1+"--========");
         this.setState({"Newsarray":data1});
 
       }.bind(this),
@@ -28,10 +25,6 @@ constructor(){
       }.bind(this)
     });
 	}
-
-
-
-
 	render(){
 	return(
 		<NewsData data={this.state.Newsarray} />

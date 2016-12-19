@@ -18,6 +18,21 @@ var news=require('./routes/news');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpack = require("webpack");
 var webpackConfig = require("../webpack.config");
@@ -43,15 +58,6 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler, {
    log: console.log,
 }))
-
-
-
-
-
-
-
-
-
 
 
 

@@ -11,11 +11,9 @@ var news=require('../models/newsmodel');
     newsvar.urltoImage=req.body.urlToImage,
     newsvar.publishedAt=req.body.publishedAt
     newsvar.comments="";
-console.log("eeeeeeeeeeeeeeeeeeeeeeeeee"+newsvar.URL);
     newsvar.save(function(err){
     if(err) {
-      console.log(err+"------------");
-     // res.send(err);
+     res.send(err);
     }
     else  {
        res.send("News inserted");
@@ -23,11 +21,10 @@ console.log("eeeeeeeeeeeeeeeeeeeeeeeeee"+newsvar.URL);
       });
     }
     else{
-      console.log("else part");
+      console.log("Give something To save");
     }
     });
 router.delete("/delete",function(req,res) {
-  console.log("************************"+req.body.title);
     var request=req.body.title;
     if(request)
     {
@@ -36,7 +33,6 @@ router.delete("/delete",function(req,res) {
           res.send(err);
         }
         else  {
-          console.log("delete success");
         res.send("news deleted");
         }
       });
@@ -46,14 +42,10 @@ router.delete("/delete",function(req,res) {
     if(req.body)
     {
     news.update({"title":req.body.title},{$set:{"comments":req.body.comments}},function(err){
-
-    console.log(req.body.title);
-    console.log(req.body.comments);
         if(err) {
           res.send(err);
         }
         else  {
-          console.log("vv+++________");
         res.send("news updated");
         }
       });
@@ -63,17 +55,10 @@ router.delete("/delete",function(req,res) {
     news.find({},function(err,allnews){
       if(err) {
         res.send(err);
-        console.log('error ocuured');
       }                         
       else {
        res.send(allnews);
-          console.log("okkkk44554+allnews");
-      }
-
-        
+      }        
     });
   });
-
-
-
 module.exports = router;

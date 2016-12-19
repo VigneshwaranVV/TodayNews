@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var user=require('../models/usermodal');
+
+var passport = require('passport');
+
   router.post("/add",function(req,res) {
     if(req.body) {
     var uservar=new user();
@@ -48,8 +51,4 @@ router.get('/', function(req, res, next) {
       }
     });
   });
-
-
-
-
 module.exports = router;

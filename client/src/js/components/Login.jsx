@@ -34,13 +34,8 @@ pass(epass){
       }
     });
   }
-7010299218
 
-
-
-
-
-	render(){
+render(){
  return (
       <div className="login-card">
          <div>
@@ -49,7 +44,7 @@ pass(epass){
       <form>
         <input type="text" name="user" placeholder="Username" onChange={this.user.bind(this)}/><br/>
         <input type="password" name="pass" placeholder="Password" onChange={this.pass.bind(this)}/><br/>
-        <input type="submit" name="login" className="login login-submit" value="Submit" onClick={this.check.bind(this)} />
+        <input type="submit" name="register" className="login login-submit" value="Register" onClick={this.check.bind(this)} />
       </form>
       
     </div>

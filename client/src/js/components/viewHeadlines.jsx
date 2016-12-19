@@ -9,13 +9,16 @@ export default class viewHeadlines extends React.Component
     }
   }
   Tosave(){
+   $("button").click(function(){
+        $(this).hide();
+    });
     $.ajax({
           url:"http://localhost:8342/news/add",
           type: 'POST',
           datatype:'JSON',
           data:this.props.data,
           success: function(data)
-          {
+          {             
             console.log("added successsssssssssssss");
           }.bind(this),
           error:function(err)
