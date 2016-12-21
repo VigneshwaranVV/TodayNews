@@ -18,7 +18,7 @@ export default class viewHeadlines extends React.Component
           datatype:'JSON',
           data:this.props.data,
           success: function(data)
-          {             
+          {           
             console.log("added successsssssssssssss");
           }.bind(this),
           error:function(err)

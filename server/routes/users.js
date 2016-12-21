@@ -4,6 +4,28 @@ var user=require('../models/usermodal');
 
 var passport = require('passport');
 
+function isLoggedIn(req,res,next){
+if(req.isAuthenticated()){
+return next();
+}
+else{
+  res.json("authenticate failed")
+  }
+}
+
+router.get('/logout',function(req,res){
+req.session.destroy(function(err) {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log("inside logout route");
+    res.redirect('/');
+  }
+});
+});
+
+
+
   router.post("/add",function(req,res) {
     if(req.body) {
     var uservar=new user();
@@ -11,6 +33,7 @@ var passport = require('passport');
     uservar.password=req.body.password;
     uservar.save(function(err){
     if(err) {
+
       res.send(err);
     }
     else  {
@@ -20,6 +43,12 @@ var passport = require('passport');
     }
     });
 
+
+router.post("/login",passport.authenticate('local',{failureRedirect: '/login' }),function(req,res){
+
+  console.log("welcome"+Object.keys(req));
+  res.send("inside post login");
+});
 router.delete("/delete",function(req,res){
     var request=req.body.username;
     if(request)
@@ -35,7 +64,7 @@ router.delete("/delete",function(req,res){
     }
   });
 
-router.get('/', function(req, res, next) {
+router.get('/',function(req, res, next) {
     user.find({},function(err,alluser){
       if(err) {
         res.send(err);
@@ -47,7 +76,6 @@ router.get('/', function(req, res, next) {
           user[users._id]=users;
           
         });
-        res.send(user);
       }
     });
   });

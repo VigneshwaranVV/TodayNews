@@ -1,6 +1,6 @@
 import React from 'react';
 import {browserHistory} from 'react-router';
-export default class Login extends React.Component{
+export default class signup extends React.Component{
   constructor(){
   	super();
     this.state={
@@ -22,12 +22,12 @@ pass(epass){
   }
     console.log("login clicked");
     $.ajax({
-      url:"http://localhost:8342/users/login",
+      url:"http://localhost:8342/users/add",
       type: 'POST',
       data : login,
       success: function(data){
       console.log("allow login");
-     browserHistory.push('/home');
+     browserHistory.push('/login');
        }.bind(this),
       error:function(err)
       {
@@ -40,12 +40,12 @@ render(){
  return (
       <div className="login-card">
          <div>
-         <h1>Log-in</h1><br />
+         <h1>Sign Up</h1><br />
          </div>
       <div>
         <input type="text" name="user" placeholder="Username" onChange={this.user.bind(this)}/><br/>
         <input type="password" name="pass" placeholder="Password" onChange={this.pass.bind(this)}/><br/>
-        <input type="button" name="login" className="login login-submit" value="Login" onClick={this.check.bind(this)} />
+        <input type="button" name="Submit" className="login login-submit" value="Submit" onClick={this.check.bind(this)} />
       </div>
       
     </div>

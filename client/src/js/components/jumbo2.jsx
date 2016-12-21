@@ -81,7 +81,7 @@ console.log(title+"------"+title2);
                               <h4 className="modal-title">Update Comment</h4>
                           </div>
                           <div className="modal-body">
-                              <textarea className="form-control custom-control" rows="3" onChange={this.getcommenttext.bind(this)}  placeholder="Enter Comments to update..." ></textarea> 
+                              <textarea className="form-control custom-control" rows="3" onChange={this.getcommenttext.bind(this)}  placeholder="Enter Comments to update..." >{this.props.data.comments}</textarea> 
                           </div>
                           <div className="modal-footer">
                               <button type="button" className="btn btn-primary" onClick={this.Toupdate.bind(this)}  title="click to update commend">Comment</button>

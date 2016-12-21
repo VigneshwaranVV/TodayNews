@@ -21,7 +21,7 @@ constructor(){
       }.bind(this),
       error:function(err)
       {
-        console.log(err);
+        console.log(err+"--------view news");
       }.bind(this)
     });
 	}

@@ -14,6 +14,7 @@ import Contact from './components/Contact.jsx';
 import NavBar from './components/NavBar.jsx';
 import Login from './components/Login.jsx';
 import View from './components/ViewSaved.jsx';
+import signup from './components/signup.jsx';
 class MainComponent extends React.Component{
 
 render(){
@@ -28,12 +29,14 @@ return (
 }
 }
 ReactDOM.render(
-<Router history={hashHistory}>
+<Router history={browserHistory}>
              <Route path="/" component={MainComponent} >
 	             <Route path="/home" component={Home}/>
 	             <Route path="/about" component={About}/>
 	             <Route path="/contact" component={Contact}/>
 	             <Route path = "/Login" component={Login} />
+	             <Route path = "/signup" component={signup} />
+
 	             <Route path="/view" component={View}/>
 	             <IndexRoute component={Home} />
 </Route>

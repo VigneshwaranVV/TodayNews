@@ -1,7 +1,25 @@
 var express = require('express'   );
 var router = express.Router();
 var news=require('../models/newsmodel');
-  router.post("/add",function(req,res) {
+
+
+function isLoggedIn(req,res,next){
+  console.log("ghh");
+if(req.isAuthenticated()){
+  console.log("isLoggedIn" + req.user);
+return next();
+}
+else{
+  
+  console.log("not authenticated");
+  res.send("authenticate failed");
+  }
+}
+
+
+
+  router.post("/add",isLoggedIn,function(req,res,next) {
+   
     if(req.body) {
     var newsvar=new news();
     newsvar.author=req.body.author,
@@ -51,12 +69,13 @@ router.delete("/delete",function(req,res) {
       });
     }
   });
-  router.get('/', function(req, res, next) {
+  router.get('/',isLoggedIn,function(req, res, next) {
     news.find({},function(err,allnews){
       if(err) {
         res.send(err);
       }                         
       else {
+        console.log("get news");
        res.send(allnews);
       }        
     });
